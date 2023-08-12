@@ -6,42 +6,42 @@ Compile the Multiplier2() circuit and verify it against a smart contract verifie
 ## version
 pragma circom 2.0.0;
 
-## named circuit.circom
+## `named circuit.circom`
 template Multiplier2 () {  
 
-### input Declaration of signals.  
+### `input Declaration of signals.`  
    signal input a;  
    signal input b;  
-### signal from gates
+### `signal from gates`
    signal x;
    signal y;
-### output signal    
+### `output signal`    
    signal output Q;
-### gates 
+### `gates `
    component andGate = AND();
    component notGate = NOT();
    component orGate = OR();
    
-## circuit logic
-### and gate
+## `circuit logic`
+### `and gate`
    andGate.a <== a;
    andGate.b <== b;
    x <== andGate.out;
-### not gate
+### `not gate`
   notGate.in <== b;
    y <== andGate.out;
-### or gate
+### `or gate`
    orGate.x <== x;
    orGate.y <== y;
    Q <== orGate.out;
 
-### initiate the logic of gates
+### `initiate the logic of gates`
 component main = Multiplier2();
-## commands used 
+## `commands used` 
 ## `Install`
 `npm i`
 
-### Compile
+### `Compile`
 `npx hardhat circom` This will generate the out file with circuit intermediaries and geneate the MultiplierVerifier.sol contract
 
 ### `Prove and Deploy`
@@ -53,5 +53,5 @@ component main = Multiplier2();
 * Calls verifyProof() on the verifier contract with calldata
 * With two commands you can compile a ZKP, generate a proof, deploy a verifier, and verify the proof 🎉
 
-### deploy it 
-`on polygonsacn mumbai testnet`
+### `deploy it` 
+`deploy the contract n polygonsacn mumbai testnet.
